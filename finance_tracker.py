@@ -35,7 +35,7 @@ for expense in expenses:
         print("Обычная трата:", expense)
 
 
-expense = [1000, 3333, 222, 55555, 1332, 444, 120, 12]
+expenses = [1000, 3333, 222, 55555, 1332, 444, 120, 12]
 
 for expense in expenses:
     if expense > 1500:
