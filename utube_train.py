@@ -79,6 +79,42 @@ print(type(is_student))
 # str() - преобразование типа данных str
 # bool() - преобразование типа данных bool
 
+age = 25 # int (integer)
+height = 1.75 # float (Float)
+name_2 = "John" # str (String)
+is_married = False # bool (Boolean)
+is_student = True #boll (Boolean)
+
+# При преобразовании False в float или в int получаем 0 и 0.0 при преобразовании True мы бы получили 1 и 1.0
+
+print(float(age))
+print(int(height))
+print(bool(name_2))
+print(int(is_married))
+print(float(is_married))
+print(str(is_student))
+print(type(str(is_student)))
+
+# Все значения кроме ниже перечисленных дают истинные значения (True)
+# 0, '', None, [], (), {} - ложные значения (False)
+# [] - пустой список
+# () - пустой картеж
+# {} - пустой словарь
+
+print(bool(0))
+print(bool(""))
+
+
+#                                      УРОК 7
+
+
+
+
+
+
+
+
+
 
 
 
