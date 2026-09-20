@@ -47,5 +47,43 @@ for expense in expenses:
 
 
 
+total = 0
+for expense in expenses:
+    total += expense
+print("Общая сумма :", total)
+
+
+
+
+
+
+total = 0
+count = 0
+for expense in expenses:
+    total += expense
+    count += 1
+print("Среднее:", total / count)
+
+
+
+expenses = [1500, 200, 3000, 400, 1200, 50]
+total_big = 0
+for expense in expenses:
+    if expense > 1000:
+        total_big += expense
+print(total_big)
+
+
+
+expenses = [1500, 200, 3000, 400, 1200, 50]
+count_big = 0
+for expense in expenses:
+    if expense > 1000:
+        count_big += 1
+print(count_big)
+
+
+
+
 
 
