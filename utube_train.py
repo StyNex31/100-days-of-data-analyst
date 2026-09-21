@@ -144,7 +144,76 @@ print(round(67, -2)) # если брат -2 тогда округление ид
 
 #                                      УРОК 8
 
+# Логические операторы
 
+# not - логическое НЕ
+# and - логическое И
+# or - логическое ИЛИ
 
+print('\nЛогическое И\n' + '-' * 50) # Выводит True только если оба варианта True если же один или оба варианта False то выводится False
+print(True and True)
+print(True and False)
+print(False and False)
+
+print('\nЛогическое ИЛИ\n' + '-' * 50) # Выводится True если хотя бы один из вариантов True если оба False то выходит False
+print(True or True)
+print(True or False)
+print(False or False)
+
+print('\nЛогическое НЕ\n' + '-' * 50) # Выводит противоположное значение
+print(not True)
+print(not False)
+
+# Приоритет логических операторов
+# not > and > or
+print('\nПриоритет логических операторов\n' + '-' * 50)
+print(not False or False and False)
+print(True or False and False)
+print(True or False)
+print(True)
+
+# Изменение приоритета с помощью скобок
+print('\nИзменение приоритета с помощью скобок\n' + '-' * 50)
+print(not (False or (False and False)))
+print(not (False or False))
+print(not False)
+print(True)
+
+# Сравнение чисел
+print('\nСравнение чисел\n' + '-' * 50)
+
+# == - равенство (length == 10)
+# != - неравенство (length != 10)
+# > - больше
+# < - меньше
+# >= - больше или равно (length >= 10)
+# <= - меньше или равно (length <= 10)
+
+print(1 == 1)
+print(1 != 1)
+print(1 > 1)
+print(1 < 1)
+print(1 >= 1)
+print(1 <= 1)
+
+# Математическое сравнение и логические операторы
+print('\Математические сравнение и логические операторы\n' + '-' * 50)
+
+print(1 < 2 and 2 <3)
+print(True and True)
+print(True)
+
+print(1 < 2 or 5 <3)
+print(True or False)
+print(True)
+
+print(not 1 < 2)
+print(not True)
+print(False)
+
+print(1 < 2 or 5 < 3 and 2 < 3)
+print(True or False and True)
+print(True or False)
+print(True)
 
 
