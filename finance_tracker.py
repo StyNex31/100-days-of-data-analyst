@@ -1,10 +1,6 @@
 
 
 
-
-
-
-
 expenses = [
     {"category": "еда", "amount": 1900, "date": "22.08.2026"},
     {"category": "транспорт", "amount": 240, "date": "22.08.2026"},
@@ -36,25 +32,37 @@ expenses = [
     {"category": "еда", "amount": 680, "date": "28.08.2026"},
     {"category": "транспорт", "amount": 1360, "date": "28.08.2026"},
     {"category": "друзья", "amount": 5000, "date": "29.08.2026"},
-    {"category": "друзья", "amount": 3000, "date": "29.08.2026"},
-    {"category": "друзья", "amount": 2800, "date": "29.08.2026"},
-    {"category": "друзья", "amount": 900, "date": "29.08.2026"},
-    {"category": "транспорт", "amount": 6000, "date": "29.08.2026"},
-    {"category": "еда", "amount": 1400, "date": "30.08.2026"},
-    {"category": "еда", "amount": 4200, "date": "30.08.2026"},
-    {"category": "еда", "amount": 1600, "date": "30.08.2026"},
-    {"category": "еда", "amount": 2200, "date": "30.08.2026"},
-    {"category": "еда", "amount": 760, "date": "30.08.2026"},
-    {"category": "еда", "amount": 750, "date": "30.08.2026"},
-    {"category": "еда", "amount": 360, "date": "30.08.2026"},
-    {"category": "еда", "amount": 1570, "date": "30.08.2026"},
-    {"category": "еда", "amount": 435, "date": "30.08.2026"},
-    {"category": "еда", "amount": 840, "date": "30.08.2026"},
-    {"category": "еда", "amount": 60, "date": "30.08.2026"},
 ]
 
-for expense in expenses:
-    print(expense["date"], "-", expense["category"], "-", expense["amount"])
+def sum_by_category(expenses, category):
+    total = 0
+    for expense in expenses:
+        if expense["category"] == category:
+            total += expense["amount"]
+    return total
+
+def count_levels(expenses):
+    small = 0
+    normal = 0
+    big = 0
+    for expense in expenses:
+        amount = expense["amount"]
+        if amount < 500:
+            small += 1
+        elif amount < 2000:
+            normal += 1
+        else:
+            big += 1
+    print("Мелких:", small)
+    print("Обычных:", normal)
+    print("Крупных:", big)
+
+def show_menu():
+    print("1 - Показать все траты")
+    print("2 - Добавить трату")
+    print("3 - Сумма по категории")
+    print("4 - Статистика по уровням")
+    print("5 - Выход")
 
 
 
@@ -77,19 +85,30 @@ def add_multiple_expenses(expenses):
         new_expense = {"category": category, "amount": amount, "date": date}
         expenses.append(new_expense)
 
-def sum_by_category(expenses, category):
-    total = 0
-    for expense in expenses:
-        if expense["category"] == category:
-            total += expense["amount"]
-    return total
-
-category = input("Какую категорию посчитать? ")
-print(sum_by_category(expenses, category))
 
 
-add_expense(expenses)
-print(expenses)
+
+while True:
+    show_menu()
+    choice = input("Выбери действие: ")
+
+    if choice == "1":
+        for expense in expenses:
+            print(expense["date"], "-", expense["category"], "-", expense["amount"])
+    elif choice == "2":
+        add_expense(expenses)
+    elif choice == "3":
+        category = input("Какую категорию посчитать? ")
+        print(sum_by_category(expenses, category))
+    elif choice == "4":
+        count_levels(expenses)
+    elif choice == "5":
+        print("Выход")
+        break
+    else:
+        print("Неверный выбор, попробуй снова")
+
+
 
 
 
