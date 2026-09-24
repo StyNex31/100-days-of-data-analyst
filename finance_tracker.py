@@ -85,7 +85,12 @@ def add_multiple_expenses(expenses):
         new_expense = {"category": category, "amount": amount, "date": date}
         expenses.append(new_expense)
 
-
+def save_expenses(expenses, filename="expenses.txt"):
+    file = open(filename, "w", encoding="utf-8")
+    for expense in expenses:
+        line = expense["category"] + "," + str(expense["amount"]) + "," + expense["date"] + "\n"
+        file.write(line)
+    file.close()
 
 
 while True:
