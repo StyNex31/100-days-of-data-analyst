@@ -23,3 +23,11 @@
 #
 # -- группировка по городу
 # SELECT city, AVG(grade) FROM students GROUP BY city;
+
+
+
+
+# -- День 12: сортировка результата группировки
+#
+# SELECT city, AVG(grade) FROM students GROUP BY city
+# ORDER BY AVG(grade) DESC;
