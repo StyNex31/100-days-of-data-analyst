@@ -31,3 +31,45 @@
 #
 # SELECT city, AVG(grade) FROM students GROUP BY city
 # ORDER BY AVG(grade) DESC;
+
+
+
+
+
+# -- День 12: создание таблицы cities и JOIN со students
+#
+# CREATE TABLE cities (
+#     city TEXT,
+#     population INTEGER
+# );
+#
+# INSERT INTO cities (city, population) VALUES ('Алматы', 2000000);
+# INSERT INTO cities (city, population) VALUES ('Астана', 1200000);
+# INSERT INTO cities (city, population) VALUES ('Талдыкорган', 300000);
+#
+# -- JOIN: имя студента, оценка, население его города
+# SELECT students.name, students.grade, cities.population
+# FROM students
+# JOIN cities ON students.city = cities.city;
+#
+# -- JOIN + GROUP BY: средняя оценка по городу + население города
+# SELECT students.city, AVG(students.grade), cities.population
+# FROM students
+# JOIN cities ON students.city = cities.city
+# GROUP BY students.city;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
