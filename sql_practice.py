@@ -60,6 +60,33 @@
 
 
 
+# День 13
+
+# SELECT students.name, cities.city
+# FROM students
+# JOIN cities ON students.city = cities.city
+# WHERE cities.population > 1000000;
+
+# SELECT
+#     cities.city,
+#     cities.population,
+#     COUNT(students.id) AS student_count
+# FROM cities
+# JOIN students ON cities.city = students.city
+# GROUP BY cities.city, cities.population;
+
+
+
+
+# ДЕНЬ 14
+
+# SELECT name FROM students
+# WHERE grade > (SELECT AVG(grade) FROM students);
+
+
+# SELECT city, population
+# FROM cities
+# WHERE population > (SELECT AVG(population) FROM cities);
 
 
 
