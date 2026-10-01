@@ -90,10 +90,21 @@
 
 
 
+# День 15
 
+# SELECT city FROM cities
+# WHERE city IN (SELECT city FROM students WHERE grade > 90);
 
+# SELECT city FROM cities
+# WHERE city IN (SELECT city FROM students WHERE grade < 70);
 
+# SELECT name, grade
+# FROM students
+# WHERE grade = (SELECT MAX(grade) FROM students);
 
+# SELECT city
+# FROM cities
+# WHERE population = (SELECT MAX(population) FROM cities);
 
 
 
