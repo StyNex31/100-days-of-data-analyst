@@ -107,6 +107,59 @@
 # WHERE population = (SELECT MAX(population) FROM cities);
 
 
+# gay 16
+
+
+# SELECT name, grade,
+#        RANK() OVER (ORDER BY grade DESC) AS rank
+# FROM students;
+
+# SELECT name, grade,
+#        ROW_NUMBER() OVER (ORDER BY grade DESC) AS row_num
+# FROM students;
+
+# SELECT name, city, grade,
+#        RANK() OVER (PARTITION BY city ORDER BY grade DESC) AS rank
+# FROM students;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
