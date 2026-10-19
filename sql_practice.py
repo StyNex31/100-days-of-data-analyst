@@ -122,9 +122,19 @@
 #        RANK() OVER (PARTITION BY city ORDER BY grade DESC) AS rank
 # FROM students;
 
+# day 17
 
+# SELECT name, grade,
+#        LEAD(grade) OVER (ORDER BY grade DESC) AS next_grade
+# FROM students;
 
-
+# SELECT name, grade,
+#        grade - LAG(grade) OVER (ORDER BY grade DESC) AS grade_difference
+# FROM students;
+#
+# SELECT name, city, grade,
+#        SUM(grade) OVER (PARTITION BY city ORDER BY grade DESC) AS running_total_by_city
+# FROM students;
 
 
 
