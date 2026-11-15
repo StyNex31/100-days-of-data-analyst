@@ -187,14 +187,70 @@
 # 2026-10	Чизкейк	9000       #
 # Итого упало на 12100 (11.1% выручка)
 
+# day 19
 
+# WITH monthly AS (
+#     SELECT substr(date, 1, 7) AS month, SUM(qty * price) AS revenue
+#     FROM sales
+#     GROUP BY month
+# )
+# SELECT * FROM monthly WHERE revenue > 200000;
 
+# WITH monthly_product_revenue AS (
+#     SELECT
+#         product,
+#         strftime('%Y-%m', date) AS month,
+#         SUM(qty * price) AS total_revenue
+#     FROM
+#         sales
+#     GROUP BY
+#         product,
+#         strftime('%Y-%m', date)
+# )
+# SELECT
+#     product,
+#     month,
+#     total_revenue
+# FROM
+#     monthly_product_revenue
+# WHERE
+#     total_revenue < 80000
+# ORDER BY
+#     total_revenue ASC;
 
-
-
-
-
-
+# WITH center_september AS (
+#     SELECT
+#         product,
+#         SUM(qty * price) AS rev_sep
+#     FROM sales
+#     WHERE branch = 'Центр' AND substr(date, 1, 7) = '2026-09'
+#     GROUP BY product
+# ),
+# center_october AS (
+#     SELECT
+#         product,
+#         SUM(qty * price) AS rev_oct
+#     FROM sales
+#     WHERE branch = 'Центр' AND substr(date, 1, 7) = '2026-10'
+#     GROUP BY product
+# ),
+# revenue_diff AS (
+#     SELECT
+#         COALESCE(s.product, o.product) AS product,
+#         COALESCE(s.rev_sep, 0) AS rev_sep,
+#         COALESCE(o.rev_oct, 0) AS rev_oct,
+#         (COALESCE(s.rev_sep, 0) - COALESCE(o.rev_oct, 0)) AS drop_amount
+#     FROM center_september s
+#     FULL OUTER JOIN center_october o ON s.product = o.product
+# )
+# SELECT
+#     product,
+#     rev_sep,
+#     rev_oct,
+#     drop_amount
+# FROM revenue_diff
+# ORDER BY drop_amount DESC
+# LIMIT 1;
 
 
 
